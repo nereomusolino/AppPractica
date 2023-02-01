@@ -13,34 +13,26 @@ namespace ClasesNegocio
         public List<Canciones> Listar()
         {
             List<Canciones> lista = new List<Canciones>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader Lector;
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                conexion.ConnectionString = "server = NEREO\\SQLEXPRESS; database = DISCOS_DB; integrated security = true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, D.IdEstilo, D.IdTipoEdicion, E.Descripcion as Estilo, T.Descripcion as TiposEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdEstilo = T.Id";
-                comando.Connection = conexion;
-                conexion.Open();
-                Lector= comando.ExecuteReader();
+                datos.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, D.IdEstilo, D.IdTipoEdicion, E.Descripcion as Estilo, T.Descripcion as TiposEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
+                datos.ejecutarConsulta();
 
-                
-
-                while (Lector.Read())
+                while (datos.Lector.Read())
                 {
                     Canciones aux = new Canciones();
                     aux.Estilos = new Estilos();
                     aux.TiposEdicion = new TiposEdicion();
-                    aux.Titulo = (string)Lector["Titulo"];
-                    aux.FechaLanzamiento = (DateTime)Lector["FechaLanzamiento"];
-                    aux.CantidadCanciones = (int)Lector["CantidadCanciones"];
-                    aux.UrlImagenTapa = (string)Lector["UrlImagenTapa"];
-                    aux.Estilos.IdEstilos = (int)Lector["IdEstilo"];
-                    aux.Estilos.Descripcion = (string)Lector["Estilo"].ToString();
-                    aux.TiposEdicion.IdTiposEdicion = (int)Lector["IdTipoEdicion"];
-                    aux.TiposEdicion.Descripcion = (string)Lector["TiposEdicion"].ToString();
+                    aux.Titulo = (string)datos.Lector["Titulo"];
+                    aux.FechaLanzamiento = (DateTime)datos.Lector["FechaLanzamiento"];
+                    aux.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
+                    aux.UrlImagenTapa = (string)datos.Lector["UrlImagenTapa"];
+                    aux.Estilos.IdEstilos = (int)datos.Lector["IdEstilo"];
+                    aux.Estilos.Descripcion = (string)datos.Lector["Estilo"].ToString();
+                    aux.TiposEdicion.IdTiposEdicion = (int)datos.Lector["IdTipoEdicion"];
+                    aux.TiposEdicion.Descripcion = (string)datos.Lector["TiposEdicion"].ToString();
 
                     lista.Add(aux);
                 }
@@ -49,14 +41,12 @@ namespace ClasesNegocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
             finally 
-            { 
-                conexion.Close();
-
+            {
+                datos.cerrarConsulta();
             }
 
         }
