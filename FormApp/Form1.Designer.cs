@@ -40,9 +40,11 @@
             // 
             // dgvLista
             // 
+            this.dgvLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLista.Location = new System.Drawing.Point(12, 46);
             this.dgvLista.Name = "dgvLista";
+            this.dgvLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLista.Size = new System.Drawing.Size(533, 211);
             this.dgvLista.TabIndex = 0;
             this.dgvLista.SelectionChanged += new System.EventHandler(this.dgvLista_SelectionChanged);
@@ -87,7 +89,7 @@
             // 
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(197, 9);
+            this.lbTitulo.Location = new System.Drawing.Point(214, 9);
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(369, 26);
             this.lbTitulo.TabIndex = 5;
