@@ -49,5 +49,11 @@ namespace FormApp
             }
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FormAgregar formAgregar = new FormAgregar();
+            formAgregar.ShowDialog();
+
+        }
     }
 }
