@@ -19,14 +19,13 @@ namespace ClasesNegocio
 
             try
             {
-                conexion.ConnectionString = "server = NEREO\\SQLEXPRESS; database = DISCOS_DB; integrated security = true";
+                conexion.ConnectionString = "server = DESKTOP-U3MQGDJ\\SQLEXPRESS; database = DISCOS_DB; integrated security = true";
+                //conexion.ConnectionString = "server = NEREO\\SQLEXPRESS; database = DISCOS_DB; integrated security = true";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, D.IdEstilo, D.IdTipoEdicion, E.Descripcion as Estilo, T.Descripcion as TiposEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdEstilo = T.Id";
+                comando.CommandText = "Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, D.IdEstilo, D.IdTipoEdicion, E.Descripcion as Estilo, T.Descripcion as TiposEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id\n";
                 comando.Connection = conexion;
                 conexion.Open();
                 Lector= comando.ExecuteReader();
-
-                
 
                 while (Lector.Read())
                 {
@@ -49,14 +48,12 @@ namespace ClasesNegocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
             finally 
             { 
                 conexion.Close();
-
             }
 
         }

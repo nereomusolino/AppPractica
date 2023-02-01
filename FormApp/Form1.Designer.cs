@@ -33,6 +33,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarFisicamente = new System.Windows.Forms.Button();
+            this.lbTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenes)).BeginInit();
             this.SuspendLayout();
@@ -40,22 +41,24 @@
             // dgvLista
             // 
             this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(13, 13);
+            this.dgvLista.Location = new System.Drawing.Point(12, 46);
             this.dgvLista.Name = "dgvLista";
-            this.dgvLista.Size = new System.Drawing.Size(381, 150);
+            this.dgvLista.Size = new System.Drawing.Size(533, 211);
             this.dgvLista.TabIndex = 0;
+            this.dgvLista.SelectionChanged += new System.EventHandler(this.dgvLista_SelectionChanged);
             // 
             // pbImagenes
             // 
-            this.pbImagenes.Location = new System.Drawing.Point(400, 13);
+            this.pbImagenes.Location = new System.Drawing.Point(563, 46);
             this.pbImagenes.Name = "pbImagenes";
-            this.pbImagenes.Size = new System.Drawing.Size(156, 150);
+            this.pbImagenes.Size = new System.Drawing.Size(234, 212);
+            this.pbImagenes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenes.TabIndex = 1;
             this.pbImagenes.TabStop = false;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(13, 170);
+            this.btnAgregar.Location = new System.Drawing.Point(11, 263);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 2;
@@ -64,7 +67,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(95, 170);
+            this.btnModificar.Location = new System.Drawing.Point(93, 263);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 3;
@@ -73,18 +76,29 @@
             // 
             // btnEliminarFisicamente
             // 
-            this.btnEliminarFisicamente.Location = new System.Drawing.Point(177, 170);
+            this.btnEliminarFisicamente.Location = new System.Drawing.Point(175, 263);
             this.btnEliminarFisicamente.Name = "btnEliminarFisicamente";
             this.btnEliminarFisicamente.Size = new System.Drawing.Size(121, 23);
             this.btnEliminarFisicamente.TabIndex = 4;
             this.btnEliminarFisicamente.Text = "Eliminar Fisicamente";
             this.btnEliminarFisicamente.UseVisualStyleBackColor = true;
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.AutoSize = true;
+            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(197, 9);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(369, 26);
+            this.lbTitulo.TabIndex = 5;
+            this.lbTitulo.Text = "Programa Canciones (No Spotify)";
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 227);
+            this.ClientSize = new System.Drawing.Size(812, 299);
+            this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnEliminarFisicamente);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -96,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenes)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -106,6 +121,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarFisicamente;
+        private System.Windows.Forms.Label lbTitulo;
     }
 }
 
