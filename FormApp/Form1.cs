@@ -24,7 +24,36 @@ namespace FormApp
         private void Form_Load(object sender, EventArgs e)
         {
             CancionesNegocio CancionesNegocio = new CancionesNegocio();
-            dgvLista.DataSource = CancionesNegocio.Listar();
+            listaCanciones = CancionesNegocio.Listar();
+            dgvLista.DataSource= listaCanciones;
+            CargarImagen(listaCanciones[0].UrlImagenTapa);
+
+        }
+        private void dgvLista_SelectionChanged(object sender, EventArgs e)
+        {
+            Canciones aux = (Canciones)dgvLista.CurrentRow.DataBoundItem;
+            CargarImagen(aux.UrlImagenTapa);
+        }
+
+        private void CargarImagen(string imagen)
+        {
+            try
+            {
+                pbImagenes.Load(imagen);
+            }
+            catch (Exception)
+            {
+
+                pbImagenes.Load("https://cdn-icons-png.flaticon.com/512/85/85488.png");
+            }
+            
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FormAgregar formAgregar = new FormAgregar();
+            formAgregar.ShowDialog();
         }
     }
 }
