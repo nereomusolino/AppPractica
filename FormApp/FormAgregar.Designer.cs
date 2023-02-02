@@ -34,12 +34,14 @@
             this.lblUrlImagenTapa = new System.Windows.Forms.Label();
             this.lblEstilos = new System.Windows.Forms.Label();
             this.txbTitulo = new System.Windows.Forms.TextBox();
-            this.txbFechaLanzamiento = new System.Windows.Forms.TextBox();
             this.txbCantidadCanciones = new System.Windows.Forms.TextBox();
             this.txbUrlImagenTapa = new System.Windows.Forms.TextBox();
             this.lblTiposEdicion = new System.Windows.Forms.Label();
             this.cbEstilos = new System.Windows.Forms.ComboBox();
             this.cbTiposEdicion = new System.Windows.Forms.ComboBox();
+            this.dtpFechaLanzamiento = new System.Windows.Forms.DateTimePicker();
+            this.btnAgregar2 = new System.Windows.Forms.Button();
+            this.btnCancelar2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -54,7 +56,7 @@
             // lblFechaLanzamiento
             // 
             this.lblFechaLanzamiento.AutoSize = true;
-            this.lblFechaLanzamiento.Location = new System.Drawing.Point(41, 46);
+            this.lblFechaLanzamiento.Location = new System.Drawing.Point(41, 44);
             this.lblFechaLanzamiento.Name = "lblFechaLanzamiento";
             this.lblFechaLanzamiento.Size = new System.Drawing.Size(100, 13);
             this.lblFechaLanzamiento.TabIndex = 1;
@@ -90,23 +92,19 @@
             // txbTitulo
             // 
             this.txbTitulo.Location = new System.Drawing.Point(147, 12);
+            this.txbTitulo.MaxLength = 50;
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(121, 20);
             this.txbTitulo.TabIndex = 5;
             // 
-            // txbFechaLanzamiento
-            // 
-            this.txbFechaLanzamiento.Location = new System.Drawing.Point(147, 39);
-            this.txbFechaLanzamiento.Name = "txbFechaLanzamiento";
-            this.txbFechaLanzamiento.Size = new System.Drawing.Size(121, 20);
-            this.txbFechaLanzamiento.TabIndex = 6;
-            // 
             // txbCantidadCanciones
             // 
             this.txbCantidadCanciones.Location = new System.Drawing.Point(147, 66);
+            this.txbCantidadCanciones.MaxLength = 3;
             this.txbCantidadCanciones.Name = "txbCantidadCanciones";
             this.txbCantidadCanciones.Size = new System.Drawing.Size(121, 20);
             this.txbCantidadCanciones.TabIndex = 7;
+            this.txbCantidadCanciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCantidadCanciones_KeyPress);
             // 
             // txbUrlImagenTapa
             // 
@@ -126,6 +124,7 @@
             // 
             // cbEstilos
             // 
+            this.cbEstilos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstilos.FormattingEnabled = true;
             this.cbEstilos.Location = new System.Drawing.Point(147, 121);
             this.cbEstilos.Name = "cbEstilos";
@@ -134,33 +133,63 @@
             // 
             // cbTiposEdicion
             // 
+            this.cbTiposEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTiposEdicion.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbTiposEdicion.FormattingEnabled = true;
             this.cbTiposEdicion.Location = new System.Drawing.Point(147, 150);
             this.cbTiposEdicion.Name = "cbTiposEdicion";
             this.cbTiposEdicion.Size = new System.Drawing.Size(121, 21);
             this.cbTiposEdicion.TabIndex = 12;
             // 
+            // dtpFechaLanzamiento
+            // 
+            this.dtpFechaLanzamiento.Location = new System.Drawing.Point(147, 38);
+            this.dtpFechaLanzamiento.Name = "dtpFechaLanzamiento";
+            this.dtpFechaLanzamiento.Size = new System.Drawing.Size(121, 20);
+            this.dtpFechaLanzamiento.TabIndex = 13;
+            // 
+            // btnAgregar2
+            // 
+            this.btnAgregar2.Location = new System.Drawing.Point(58, 210);
+            this.btnAgregar2.Name = "btnAgregar2";
+            this.btnAgregar2.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar2.TabIndex = 14;
+            this.btnAgregar2.Text = "Agregar";
+            this.btnAgregar2.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar2
+            // 
+            this.btnCancelar2.Location = new System.Drawing.Point(139, 210);
+            this.btnCancelar2.Name = "btnCancelar2";
+            this.btnCancelar2.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar2.TabIndex = 15;
+            this.btnCancelar2.Text = "Cancelar";
+            this.btnCancelar2.UseVisualStyleBackColor = true;
+            // 
             // FormAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 339);
+            this.ClientSize = new System.Drawing.Size(340, 280);
+            this.Controls.Add(this.btnCancelar2);
+            this.Controls.Add(this.btnAgregar2);
+            this.Controls.Add(this.dtpFechaLanzamiento);
             this.Controls.Add(this.cbTiposEdicion);
             this.Controls.Add(this.cbEstilos);
             this.Controls.Add(this.lblTiposEdicion);
             this.Controls.Add(this.txbUrlImagenTapa);
             this.Controls.Add(this.txbCantidadCanciones);
-            this.Controls.Add(this.txbFechaLanzamiento);
             this.Controls.Add(this.txbTitulo);
             this.Controls.Add(this.lblEstilos);
             this.Controls.Add(this.lblUrlImagenTapa);
             this.Controls.Add(this.lblCantidadCanciones);
             this.Controls.Add(this.lblFechaLanzamiento);
             this.Controls.Add(this.lblTitulo);
-            this.MaximumSize = new System.Drawing.Size(398, 378);
-            this.MinimumSize = new System.Drawing.Size(398, 378);
+            this.MaximumSize = new System.Drawing.Size(356, 319);
+            this.MinimumSize = new System.Drawing.Size(356, 319);
             this.Name = "FormAgregar";
             this.Text = "Agregar";
+            this.Load += new System.EventHandler(this.FormAgregar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,11 +203,13 @@
         private System.Windows.Forms.Label lblUrlImagenTapa;
         private System.Windows.Forms.Label lblEstilos;
         private System.Windows.Forms.TextBox txbTitulo;
-        private System.Windows.Forms.TextBox txbFechaLanzamiento;
         private System.Windows.Forms.TextBox txbCantidadCanciones;
         private System.Windows.Forms.TextBox txbUrlImagenTapa;
         private System.Windows.Forms.Label lblTiposEdicion;
         private System.Windows.Forms.ComboBox cbEstilos;
         private System.Windows.Forms.ComboBox cbTiposEdicion;
+        private System.Windows.Forms.DateTimePicker dtpFechaLanzamiento;
+        private System.Windows.Forms.Button btnAgregar2;
+        private System.Windows.Forms.Button btnCancelar2;
     }
 }
