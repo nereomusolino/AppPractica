@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClasesDominio;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ClasesNegocio
 {
@@ -48,6 +49,37 @@ namespace ClasesNegocio
             {
                 datos.cerrarConsulta();
             }
+
+        }
+
+        public void Agregar(Canciones obj)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Insert into DISCOS (titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa, IdEstilo, IdTipoEdicion) values (@titulo,@FechaLanzamiento,@CantidadCanciones,@UrlImagenTapa,@IdEstilo,@IdTipoEdicion)");
+                datos.setearParametros("@Titulo", obj.Titulo);
+                datos.setearParametros("@FechaLanzamiento", obj.FechaLanzamiento);
+                datos.setearParametros("@CantidadCanciones", obj.CantidadCanciones);
+                datos.setearParametros("@UrlImagenTapa", obj.UrlImagenTapa);
+                datos.setearParametros("@IdEstilos", obj.Estilos.IdEstilos);
+                datos.setearParametros("@IdTipoEdicion", obj.TiposEdicion.IdTiposEdicion);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.cerrarConsulta();
+            }
+
 
         }
     }

@@ -156,6 +156,7 @@
             this.btnAgregar2.TabIndex = 14;
             this.btnAgregar2.Text = "Agregar";
             this.btnAgregar2.UseVisualStyleBackColor = true;
+            this.btnAgregar2.Click += new System.EventHandler(this.btnAgregar2_Click);
             // 
             // btnCancelar2
             // 
@@ -165,6 +166,7 @@
             this.btnCancelar2.TabIndex = 15;
             this.btnCancelar2.Text = "Cancelar";
             this.btnCancelar2.UseVisualStyleBackColor = true;
+            this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar2_Click);
             // 
             // FormAgregar
             // 
