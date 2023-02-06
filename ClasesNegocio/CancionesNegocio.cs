@@ -58,7 +58,7 @@ namespace ClasesNegocio
 
             try
             {
-                datos.setearConsulta("Insert into DISCOS (titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa, IdEstilo, IdTipoEdicion) values (@titulo,@FechaLanzamiento,@CantidadCanciones,@UrlImagenTapa,@IdEstilo,@IdTipoEdicion)");
+                datos.setearConsulta("Insert into DISCOS (titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa, IdEstilo, IdTipoEdicion) values (@Titulo,@FechaLanzamiento,@CantidadCanciones,@UrlImagenTapa,@IdEstilos,@IdTipoEdicion)");
                 datos.setearParametros("@Titulo", obj.Titulo);
                 datos.setearParametros("@FechaLanzamiento", obj.FechaLanzamiento);
                 datos.setearParametros("@CantidadCanciones", obj.CantidadCanciones);

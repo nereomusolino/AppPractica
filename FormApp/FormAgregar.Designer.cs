@@ -95,7 +95,7 @@
             this.txbTitulo.MaxLength = 50;
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(121, 20);
-            this.txbTitulo.TabIndex = 5;
+            this.txbTitulo.TabIndex = 0;
             // 
             // txbCantidadCanciones
             // 
@@ -103,7 +103,7 @@
             this.txbCantidadCanciones.MaxLength = 3;
             this.txbCantidadCanciones.Name = "txbCantidadCanciones";
             this.txbCantidadCanciones.Size = new System.Drawing.Size(121, 20);
-            this.txbCantidadCanciones.TabIndex = 7;
+            this.txbCantidadCanciones.TabIndex = 2;
             this.txbCantidadCanciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbCantidadCanciones_KeyPress);
             // 
             // txbUrlImagenTapa
@@ -111,7 +111,7 @@
             this.txbUrlImagenTapa.Location = new System.Drawing.Point(147, 93);
             this.txbUrlImagenTapa.Name = "txbUrlImagenTapa";
             this.txbUrlImagenTapa.Size = new System.Drawing.Size(121, 20);
-            this.txbUrlImagenTapa.TabIndex = 8;
+            this.txbUrlImagenTapa.TabIndex = 3;
             // 
             // lblTiposEdicion
             // 
@@ -129,7 +129,7 @@
             this.cbEstilos.Location = new System.Drawing.Point(147, 121);
             this.cbEstilos.Name = "cbEstilos";
             this.cbEstilos.Size = new System.Drawing.Size(121, 21);
-            this.cbEstilos.TabIndex = 11;
+            this.cbEstilos.TabIndex = 4;
             // 
             // cbTiposEdicion
             // 
@@ -139,21 +139,21 @@
             this.cbTiposEdicion.Location = new System.Drawing.Point(147, 150);
             this.cbTiposEdicion.Name = "cbTiposEdicion";
             this.cbTiposEdicion.Size = new System.Drawing.Size(121, 21);
-            this.cbTiposEdicion.TabIndex = 12;
+            this.cbTiposEdicion.TabIndex = 5;
             // 
             // dtpFechaLanzamiento
             // 
             this.dtpFechaLanzamiento.Location = new System.Drawing.Point(147, 38);
             this.dtpFechaLanzamiento.Name = "dtpFechaLanzamiento";
             this.dtpFechaLanzamiento.Size = new System.Drawing.Size(121, 20);
-            this.dtpFechaLanzamiento.TabIndex = 13;
+            this.dtpFechaLanzamiento.TabIndex = 1;
             // 
             // btnAgregar2
             // 
             this.btnAgregar2.Location = new System.Drawing.Point(58, 210);
             this.btnAgregar2.Name = "btnAgregar2";
             this.btnAgregar2.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar2.TabIndex = 14;
+            this.btnAgregar2.TabIndex = 6;
             this.btnAgregar2.Text = "Agregar";
             this.btnAgregar2.UseVisualStyleBackColor = true;
             this.btnAgregar2.Click += new System.EventHandler(this.btnAgregar2_Click);
@@ -163,7 +163,7 @@
             this.btnCancelar2.Location = new System.Drawing.Point(139, 210);
             this.btnCancelar2.Name = "btnCancelar2";
             this.btnCancelar2.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar2.TabIndex = 15;
+            this.btnCancelar2.TabIndex = 7;
             this.btnCancelar2.Text = "Cancelar";
             this.btnCancelar2.UseVisualStyleBackColor = true;
             this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar2_Click);
