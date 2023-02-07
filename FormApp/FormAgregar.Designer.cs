@@ -42,12 +42,15 @@
             this.dtpFechaLanzamiento = new System.Windows.Forms.DateTimePicker();
             this.btnAgregar2 = new System.Windows.Forms.Button();
             this.btnCancelar2 = new System.Windows.Forms.Button();
+            this.lblMenuAgregar = new System.Windows.Forms.Label();
+            this.pbAgregar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgregar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(108, 19);
+            this.lblTitulo.Location = new System.Drawing.Point(103, 55);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(33, 13);
             this.lblTitulo.TabIndex = 0;
@@ -56,7 +59,7 @@
             // lblFechaLanzamiento
             // 
             this.lblFechaLanzamiento.AutoSize = true;
-            this.lblFechaLanzamiento.Location = new System.Drawing.Point(41, 44);
+            this.lblFechaLanzamiento.Location = new System.Drawing.Point(36, 80);
             this.lblFechaLanzamiento.Name = "lblFechaLanzamiento";
             this.lblFechaLanzamiento.Size = new System.Drawing.Size(100, 13);
             this.lblFechaLanzamiento.TabIndex = 1;
@@ -65,7 +68,7 @@
             // lblCantidadCanciones
             // 
             this.lblCantidadCanciones.AutoSize = true;
-            this.lblCantidadCanciones.Location = new System.Drawing.Point(24, 73);
+            this.lblCantidadCanciones.Location = new System.Drawing.Point(19, 109);
             this.lblCantidadCanciones.Name = "lblCantidadCanciones";
             this.lblCantidadCanciones.Size = new System.Drawing.Size(117, 13);
             this.lblCantidadCanciones.TabIndex = 2;
@@ -74,7 +77,7 @@
             // lblUrlImagenTapa
             // 
             this.lblUrlImagenTapa.AutoSize = true;
-            this.lblUrlImagenTapa.Location = new System.Drawing.Point(55, 100);
+            this.lblUrlImagenTapa.Location = new System.Drawing.Point(50, 136);
             this.lblUrlImagenTapa.Name = "lblUrlImagenTapa";
             this.lblUrlImagenTapa.Size = new System.Drawing.Size(86, 13);
             this.lblUrlImagenTapa.TabIndex = 3;
@@ -83,7 +86,7 @@
             // lblEstilos
             // 
             this.lblEstilos.AutoSize = true;
-            this.lblEstilos.Location = new System.Drawing.Point(103, 129);
+            this.lblEstilos.Location = new System.Drawing.Point(98, 165);
             this.lblEstilos.Name = "lblEstilos";
             this.lblEstilos.Size = new System.Drawing.Size(37, 13);
             this.lblEstilos.TabIndex = 4;
@@ -91,7 +94,7 @@
             // 
             // txbTitulo
             // 
-            this.txbTitulo.Location = new System.Drawing.Point(147, 12);
+            this.txbTitulo.Location = new System.Drawing.Point(142, 48);
             this.txbTitulo.MaxLength = 50;
             this.txbTitulo.Name = "txbTitulo";
             this.txbTitulo.Size = new System.Drawing.Size(121, 20);
@@ -99,7 +102,7 @@
             // 
             // txbCantidadCanciones
             // 
-            this.txbCantidadCanciones.Location = new System.Drawing.Point(147, 66);
+            this.txbCantidadCanciones.Location = new System.Drawing.Point(142, 102);
             this.txbCantidadCanciones.MaxLength = 3;
             this.txbCantidadCanciones.Name = "txbCantidadCanciones";
             this.txbCantidadCanciones.Size = new System.Drawing.Size(121, 20);
@@ -108,15 +111,16 @@
             // 
             // txbUrlImagenTapa
             // 
-            this.txbUrlImagenTapa.Location = new System.Drawing.Point(147, 93);
+            this.txbUrlImagenTapa.Location = new System.Drawing.Point(142, 129);
             this.txbUrlImagenTapa.Name = "txbUrlImagenTapa";
             this.txbUrlImagenTapa.Size = new System.Drawing.Size(121, 20);
             this.txbUrlImagenTapa.TabIndex = 3;
+            this.txbUrlImagenTapa.Leave += new System.EventHandler(this.txbUrlImagenTapa_Leave);
             // 
             // lblTiposEdicion
             // 
             this.lblTiposEdicion.AutoSize = true;
-            this.lblTiposEdicion.Location = new System.Drawing.Point(55, 158);
+            this.lblTiposEdicion.Location = new System.Drawing.Point(50, 194);
             this.lblTiposEdicion.Name = "lblTiposEdicion";
             this.lblTiposEdicion.Size = new System.Drawing.Size(85, 13);
             this.lblTiposEdicion.TabIndex = 10;
@@ -126,7 +130,7 @@
             // 
             this.cbEstilos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstilos.FormattingEnabled = true;
-            this.cbEstilos.Location = new System.Drawing.Point(147, 121);
+            this.cbEstilos.Location = new System.Drawing.Point(142, 157);
             this.cbEstilos.Name = "cbEstilos";
             this.cbEstilos.Size = new System.Drawing.Size(121, 21);
             this.cbEstilos.TabIndex = 4;
@@ -136,21 +140,21 @@
             this.cbTiposEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTiposEdicion.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbTiposEdicion.FormattingEnabled = true;
-            this.cbTiposEdicion.Location = new System.Drawing.Point(147, 150);
+            this.cbTiposEdicion.Location = new System.Drawing.Point(142, 186);
             this.cbTiposEdicion.Name = "cbTiposEdicion";
             this.cbTiposEdicion.Size = new System.Drawing.Size(121, 21);
             this.cbTiposEdicion.TabIndex = 5;
             // 
             // dtpFechaLanzamiento
             // 
-            this.dtpFechaLanzamiento.Location = new System.Drawing.Point(147, 38);
+            this.dtpFechaLanzamiento.Location = new System.Drawing.Point(142, 74);
             this.dtpFechaLanzamiento.Name = "dtpFechaLanzamiento";
             this.dtpFechaLanzamiento.Size = new System.Drawing.Size(121, 20);
             this.dtpFechaLanzamiento.TabIndex = 1;
             // 
             // btnAgregar2
             // 
-            this.btnAgregar2.Location = new System.Drawing.Point(58, 210);
+            this.btnAgregar2.Location = new System.Drawing.Point(84, 227);
             this.btnAgregar2.Name = "btnAgregar2";
             this.btnAgregar2.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar2.TabIndex = 6;
@@ -160,7 +164,7 @@
             // 
             // btnCancelar2
             // 
-            this.btnCancelar2.Location = new System.Drawing.Point(139, 210);
+            this.btnCancelar2.Location = new System.Drawing.Point(165, 227);
             this.btnCancelar2.Name = "btnCancelar2";
             this.btnCancelar2.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar2.TabIndex = 7;
@@ -168,11 +172,32 @@
             this.btnCancelar2.UseVisualStyleBackColor = true;
             this.btnCancelar2.Click += new System.EventHandler(this.btnCancelar2_Click);
             // 
+            // lblMenuAgregar
+            // 
+            this.lblMenuAgregar.AutoSize = true;
+            this.lblMenuAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenuAgregar.Location = new System.Drawing.Point(85, 9);
+            this.lblMenuAgregar.Name = "lblMenuAgregar";
+            this.lblMenuAgregar.Size = new System.Drawing.Size(132, 24);
+            this.lblMenuAgregar.TabIndex = 11;
+            this.lblMenuAgregar.Text = "Menu Agregar";
+            // 
+            // pbAgregar
+            // 
+            this.pbAgregar.Location = new System.Drawing.Point(294, 48);
+            this.pbAgregar.Name = "pbAgregar";
+            this.pbAgregar.Size = new System.Drawing.Size(216, 202);
+            this.pbAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAgregar.TabIndex = 12;
+            this.pbAgregar.TabStop = false;
+            // 
             // FormAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 280);
+            this.ClientSize = new System.Drawing.Size(535, 280);
+            this.Controls.Add(this.pbAgregar);
+            this.Controls.Add(this.lblMenuAgregar);
             this.Controls.Add(this.btnCancelar2);
             this.Controls.Add(this.btnAgregar2);
             this.Controls.Add(this.dtpFechaLanzamiento);
@@ -187,11 +212,12 @@
             this.Controls.Add(this.lblCantidadCanciones);
             this.Controls.Add(this.lblFechaLanzamiento);
             this.Controls.Add(this.lblTitulo);
-            this.MaximumSize = new System.Drawing.Size(356, 319);
-            this.MinimumSize = new System.Drawing.Size(356, 319);
+            this.MaximumSize = new System.Drawing.Size(551, 319);
+            this.MinimumSize = new System.Drawing.Size(551, 319);
             this.Name = "FormAgregar";
             this.Text = "Agregar";
             this.Load += new System.EventHandler(this.FormAgregar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbAgregar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +239,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaLanzamiento;
         private System.Windows.Forms.Button btnAgregar2;
         private System.Windows.Forms.Button btnCancelar2;
+        private System.Windows.Forms.Label lblMenuAgregar;
+        private System.Windows.Forms.PictureBox pbAgregar;
     }
 }

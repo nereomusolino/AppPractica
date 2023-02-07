@@ -54,6 +54,11 @@ namespace FormApp
                 MessageBox.Show("Agregado exitosamente");
                 this.Close();
             }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("jajaja xd lol");
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
@@ -64,6 +69,23 @@ namespace FormApp
         private void btnCancelar2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CargarImagen(string imagen)
+        {
+            try
+            {
+                pbAgregar.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pbAgregar.Load("https://cdn-icons-png.flaticon.com/512/85/85488.png");
+            }
+        }
+
+        private void txbUrlImagenTapa_Leave(object sender, EventArgs e)
+        {
+            CargarImagen(txbUrlImagenTapa.Text);
         }
     }
 }

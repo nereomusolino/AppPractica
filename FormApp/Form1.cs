@@ -23,11 +23,23 @@ namespace FormApp
 
         private void Form_Load(object sender, EventArgs e)
         {
-            CancionesNegocio CancionesNegocio = new CancionesNegocio();
-            listaCanciones = CancionesNegocio.Listar();
-            dgvLista.DataSource= listaCanciones;
-            CargarImagen(listaCanciones[0].UrlImagenTapa);
+            cargarBase();
+        }
 
+        private void cargarBase()
+        {
+            CancionesNegocio CancionesNegocio = new CancionesNegocio();
+            try
+            {
+                listaCanciones = CancionesNegocio.Listar();
+                dgvLista.DataSource = listaCanciones;
+                //dgvLista.Columns["UrlImagenTapa"].Visible = false;
+                CargarImagen(listaCanciones[0].UrlImagenTapa);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void dgvLista_SelectionChanged(object sender, EventArgs e)
         {
@@ -43,17 +55,15 @@ namespace FormApp
             }
             catch (Exception)
             {
-
                 pbImagenes.Load("https://cdn-icons-png.flaticon.com/512/85/85488.png");
             }
-            
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             FormAgregar formAgregar = new FormAgregar();
             formAgregar.ShowDialog();
+            cargarBase();
         }
     }
 }

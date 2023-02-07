@@ -26,14 +26,23 @@ namespace ClasesNegocio
                     Canciones aux = new Canciones();
                     aux.Estilos = new Estilos();
                     aux.TiposEdicion = new TiposEdicion();
-                    aux.Titulo = (string)datos.Lector["Titulo"];
-                    aux.FechaLanzamiento = (DateTime)datos.Lector["FechaLanzamiento"];
-                    aux.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
-                    aux.UrlImagenTapa = (string)datos.Lector["UrlImagenTapa"];
-                    aux.Estilos.IdEstilos = (int)datos.Lector["IdEstilo"];
-                    aux.Estilos.Descripcion = (string)datos.Lector["Estilo"].ToString();
-                    aux.TiposEdicion.IdTiposEdicion = (int)datos.Lector["IdTipoEdicion"];
-                    aux.TiposEdicion.Descripcion = (string)datos.Lector["TiposEdicion"].ToString();
+                    if (!(datos.Lector["Titulo"] is DBNull))
+                        aux.Titulo = (string)datos.Lector["Titulo"];
+                    if (!(datos.Lector["FechaLanzamiento"] is DBNull))
+                        aux.FechaLanzamiento = (DateTime)datos.Lector["FechaLanzamiento"];
+                    if (!(datos.Lector["CantidadCanciones"] is DBNull))
+                        aux.CantidadCanciones = (int)datos.Lector["CantidadCanciones"];
+                    if (!(datos.Lector["UrlImagenTapa"] is DBNull))
+                        aux.UrlImagenTapa = (string)datos.Lector["UrlImagenTapa"];
+                    if (!(datos.Lector["IdEstilo"] is DBNull))
+                        aux.Estilos.IdEstilos = (int)datos.Lector["IdEstilo"];
+                    if (!(datos.Lector["Estilo"] is DBNull))
+                        aux.Estilos.Descripcion = (string)datos.Lector["Estilo"].ToString();
+                    if (!(datos.Lector["IdTipoEdicion"] is DBNull))
+                        aux.TiposEdicion.IdTiposEdicion = (int)datos.Lector["IdTipoEdicion"];
+                    if (!(datos.Lector["TiposEdicion"] is DBNull))
+                        aux.TiposEdicion.Descripcion = (string)datos.Lector["TiposEdicion"].ToString();
+
 
                     lista.Add(aux);
                 }
@@ -79,8 +88,6 @@ namespace ClasesNegocio
             {
                 datos.cerrarConsulta();
             }
-
-
         }
     }
 }
