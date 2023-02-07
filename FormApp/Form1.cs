@@ -33,7 +33,7 @@ namespace FormApp
             {
                 listaCanciones = CancionesNegocio.Listar();
                 dgvLista.DataSource = listaCanciones;
-                //dgvLista.Columns["UrlImagenTapa"].Visible = false;
+                dgvLista.Columns["UrlImagenTapa"].Visible = false;
                 CargarImagen(listaCanciones[0].UrlImagenTapa);
             }
             catch (Exception ex)
@@ -64,6 +64,17 @@ namespace FormApp
             FormAgregar formAgregar = new FormAgregar();
             formAgregar.ShowDialog();
             cargarBase();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Canciones aux;
+            aux = (Canciones)dgvLista.CurrentRow.DataBoundItem;
+
+            FormModificar formModificar = new FormModificar(aux);
+            formModificar.ShowDialog();
+            cargarBase();
+
         }
     }
 }
