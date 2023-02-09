@@ -9,6 +9,8 @@ namespace ClasesDominio
 {
     public class Canciones
     {
+        public int Id { get; set; }
+
         [DisplayName("Título Album")]
         public String Titulo { get; set; }
         [DisplayName("Fecha de Lanzamiento")]

@@ -15,7 +15,7 @@ namespace FormApp
 {
     public partial class FormModificar : System.Windows.Forms.Form
     {
-        private Canciones aux = null;
+        private readonly Canciones aux = null;
         public FormModificar()
         {         
             InitializeComponent();
@@ -73,6 +73,30 @@ namespace FormApp
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Canciones aux = new Canciones();
+            CancionesNegocio negocio = new CancionesNegocio();
+
+            try
+            {
+                aux.Titulo = txbTitulo.Text;
+                aux.FechaLanzamiento = dtpFechaLanzamiento.Value;
+                aux.CantidadCanciones = int.Parse(txbCantidadCanciones.Text);
+                aux.UrlImagenTapa = txbUrlImagenTapa.Text;
+                aux.Estilos = (Estilos)cbEstilos.SelectedItem;
+                aux.TiposEdicion = (TiposEdicion)cbTiposEdicion.SelectedItem;
+
+                negocio.Modificar(aux);
+                MessageBox.Show("Modificado exitosamente");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

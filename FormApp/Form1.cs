@@ -23,10 +23,10 @@ namespace FormApp
 
         private void Form_Load(object sender, EventArgs e)
         {
-            cargarBase();
+            CargarBase();
         }
 
-        private void cargarBase()
+        private void CargarBase()
         {
             CancionesNegocio CancionesNegocio = new CancionesNegocio();
             try
@@ -34,6 +34,7 @@ namespace FormApp
                 listaCanciones = CancionesNegocio.Listar();
                 dgvLista.DataSource = listaCanciones;
                 dgvLista.Columns["UrlImagenTapa"].Visible = false;
+                dgvLista.Columns["Id"].Visible= false;
                 CargarImagen(listaCanciones[0].UrlImagenTapa);
             }
             catch (Exception ex)
@@ -63,7 +64,7 @@ namespace FormApp
         {
             FormAgregar formAgregar = new FormAgregar();
             formAgregar.ShowDialog();
-            cargarBase();
+            CargarBase();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace FormApp
 
             FormModificar formModificar = new FormModificar(aux);
             formModificar.ShowDialog();
-            cargarBase();
+            CargarBase();
 
         }
     }

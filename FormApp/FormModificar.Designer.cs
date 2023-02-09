@@ -31,7 +31,7 @@
             this.pbModificar = new System.Windows.Forms.PictureBox();
             this.lblMenuModificar = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.dtpFechaLanzamiento = new System.Windows.Forms.DateTimePicker();
             this.cbTiposEdicion = new System.Windows.Forms.ComboBox();
             this.cbEstilos = new System.Windows.Forms.ComboBox();
@@ -76,14 +76,15 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnAgregar
+            // btnModificar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(79, 241);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 24;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(79, 241);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 24;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // dtpFechaLanzamiento
             // 
@@ -196,7 +197,7 @@
             this.Controls.Add(this.pbModificar);
             this.Controls.Add(this.lblMenuModificar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dtpFechaLanzamiento);
             this.Controls.Add(this.cbTiposEdicion);
             this.Controls.Add(this.cbEstilos);
@@ -223,7 +224,7 @@
         private System.Windows.Forms.PictureBox pbModificar;
         private System.Windows.Forms.Label lblMenuModificar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.DateTimePicker dtpFechaLanzamiento;
         private System.Windows.Forms.ComboBox cbTiposEdicion;
         private System.Windows.Forms.ComboBox cbEstilos;

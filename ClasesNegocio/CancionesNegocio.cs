@@ -18,7 +18,7 @@ namespace ClasesNegocio
 
             try
             {
-                datos.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, D.IdEstilo, D.IdTipoEdicion, E.Descripcion as Estilo, T.Descripcion as TiposEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
+                datos.setearConsulta("Select D.Id, D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, D.IdEstilo, D.IdTipoEdicion, E.Descripcion as Estilo, T.Descripcion as TiposEdicion from DISCOS D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
                 datos.ejecutarConsulta();
 
                 while (datos.Lector.Read())
@@ -26,6 +26,7 @@ namespace ClasesNegocio
                     Canciones aux = new Canciones();
                     aux.Estilos = new Estilos();
                     aux.TiposEdicion = new TiposEdicion();
+                    aux.Id = (int)datos.Lector["Id"];
                     if (!(datos.Lector["Titulo"] is DBNull))
                         aux.Titulo = (string)datos.Lector["Titulo"];
                     if (!(datos.Lector["FechaLanzamiento"] is DBNull))
@@ -54,7 +55,7 @@ namespace ClasesNegocio
                 throw ex;
             }
 
-            finally 
+            finally
             {
                 datos.cerrarConsulta();
             }
@@ -80,7 +81,6 @@ namespace ClasesNegocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
@@ -89,5 +89,32 @@ namespace ClasesNegocio
                 datos.cerrarConsulta();
             }
         }
-    }
+
+        public void Modificar(Canciones obj)
+        {
+            AccesoDatos access = new AccesoDatos();
+
+            try
+            {
+                access.setearConsulta("Update DISCOS set Titulo = @Titulo, FechaLanzamiento = @FechaLanzamiento, CantidadCanciones = @CantidadCanciones, UrlImagenTapa = @Url, IdEstilo = @IdEstilo, IdTipoEdicion = @IdTipoEdicion where Id = @Id");
+                access.setearParametros("@Titulo", obj.Titulo);
+                access.setearParametros("@FechaLanzamiento", obj.FechaLanzamiento);
+                access.setearParametros("@CantidadCanciones", obj.CantidadCanciones);
+                access.setearParametros("@Url", obj.UrlImagenTapa);
+                access.setearParametros("@IdEstilo", obj.Estilos.IdEstilos);
+                access.setearParametros("@IdTipoEdicion", obj.TiposEdicion.IdTiposEdicion);
+                access.setearParametros("Id", obj.Id);
+
+                access.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                access.cerrarConsulta();
+            }
+        }
+    } 
 }
