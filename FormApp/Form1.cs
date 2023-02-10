@@ -81,23 +81,46 @@ namespace FormApp
 
         private void btnEliminarFisicamente_Click(object sender, EventArgs e)
         {
+            eliminar();
+        }
+
+        private void btnEliminarLogicamente_Click(object sender, EventArgs e)
+        {
+            eliminar(true);
+        }
+
+        private void eliminar(bool estado = false)
+        {
             Canciones objCan = new Canciones();
             CancionesNegocio objNeg = new CancionesNegocio();
+
             try
             {
-                DialogResult respuesta = MessageBox.Show("Desea eliminar la cancion?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (respuesta == DialogResult.Yes)
+                if (estado)
                 {
-                    objCan = (Canciones)dgvLista.CurrentRow.DataBoundItem;
-                    objNeg.EliminarFisicamente(objCan);
-                    CargarBase();
+                    DialogResult respuesta = MessageBox.Show("Desea eliminar la cancion?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        objCan = (Canciones)dgvLista.CurrentRow.DataBoundItem;
+                        objNeg.EliminarLogicamente(objCan);
+                        CargarBase();
+                    }
+                }
+                else
+                {
+                    DialogResult respuesta = MessageBox.Show("Desea eliminar la cancion de forma permanente?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        objCan = (Canciones)dgvLista.CurrentRow.DataBoundItem;
+                        objNeg.EliminarFisicamente(objCan);
+                        CargarBase();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
-            }
-
+                MessageBox.Show("No se pudo eliminar");
+            }                
         }
     }
 }

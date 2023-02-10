@@ -34,6 +34,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarFisicamente = new System.Windows.Forms.Button();
             this.lbTitulo = new System.Windows.Forms.Label();
+            this.btnEliminarLogicamente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenes)).BeginInit();
             this.SuspendLayout();
@@ -100,11 +101,22 @@
             this.lbTitulo.TabIndex = 5;
             this.lbTitulo.Text = "Programa Canciones (No Spotify)";
             // 
+            // btnEliminarLogicamente
+            // 
+            this.btnEliminarLogicamente.Location = new System.Drawing.Point(303, 263);
+            this.btnEliminarLogicamente.Name = "btnEliminarLogicamente";
+            this.btnEliminarLogicamente.Size = new System.Drawing.Size(117, 23);
+            this.btnEliminarLogicamente.TabIndex = 6;
+            this.btnEliminarLogicamente.Text = "Eliminar Logicamente";
+            this.btnEliminarLogicamente.UseVisualStyleBackColor = true;
+            this.btnEliminarLogicamente.Click += new System.EventHandler(this.btnEliminarLogicamente_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 299);
+            this.Controls.Add(this.btnEliminarLogicamente);
             this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnEliminarFisicamente);
             this.Controls.Add(this.btnModificar);
@@ -129,6 +141,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarFisicamente;
         private System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.Button btnEliminarLogicamente;
     }
 }
 
