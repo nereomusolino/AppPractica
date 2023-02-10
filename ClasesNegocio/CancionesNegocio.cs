@@ -104,7 +104,7 @@ namespace ClasesNegocio
                 access.setearParametros("@IdEstilo", obj.Estilos.IdEstilos);
                 access.setearParametros("@IdTipoEdicion", obj.TiposEdicion.IdTiposEdicion);
                 access.setearParametros("Id", obj.Id);
-
+                
                 access.ejecutarAccion();
             }
             catch (Exception ex)
@@ -114,6 +114,28 @@ namespace ClasesNegocio
             finally
             {
                 access.cerrarConsulta();
+            }
+        }
+
+        public void EliminarFisicamente(Canciones obj)
+        {
+            AccesoDatos acceso = new AccesoDatos();
+
+            try
+            {
+                acceso.setearConsulta("delete from DISCOS where Id = @Id");
+                acceso.setearParametros("@Id",obj.Id);
+
+                acceso.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                acceso.cerrarConsulta();
             }
         }
     } 

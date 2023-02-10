@@ -15,15 +15,15 @@ namespace FormApp
 {
     public partial class FormModificar : System.Windows.Forms.Form
     {
-        private readonly Canciones aux = null;
+        private Canciones auxiliar = null;
         public FormModificar()
         {         
             InitializeComponent();
         }
         public FormModificar(Canciones aux)
         {
+            auxiliar = aux;
             InitializeComponent();
-            this.aux = aux;
         }
 
         private void FormModificar_Load(object sender, EventArgs e)
@@ -40,15 +40,15 @@ namespace FormApp
                 cbTiposEdicion.ValueMember = "IdTiposEdicion";
                 cbTiposEdicion.DisplayMember = "Descripcion";
 
-                if (aux != null)
+                if (auxiliar != null)
                 {
-                    txbTitulo.Text = aux.Titulo;
-                    dtpFechaLanzamiento.Value = aux.FechaLanzamiento;
-                    txbCantidadCanciones.Text = aux.CantidadCanciones.ToString();
-                    txbUrlImagenTapa.Text = aux.UrlImagenTapa;
-                    cbEstilos.SelectedValue = aux.Estilos.IdEstilos;
-                    cbTiposEdicion.SelectedValue = aux.TiposEdicion.IdTiposEdicion;
-                    CargarImagen(aux.UrlImagenTapa);
+                    txbTitulo.Text = auxiliar.Titulo;
+                    dtpFechaLanzamiento.Value = auxiliar.FechaLanzamiento;
+                    txbCantidadCanciones.Text = auxiliar.CantidadCanciones.ToString();
+                    txbUrlImagenTapa.Text = auxiliar.UrlImagenTapa;
+                    cbEstilos.SelectedValue = auxiliar.Estilos.IdEstilos;
+                    cbTiposEdicion.SelectedValue = auxiliar.TiposEdicion.IdTiposEdicion;
+                    CargarImagen(auxiliar.UrlImagenTapa);
                 }
 
             }
@@ -77,21 +77,23 @@ namespace FormApp
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Canciones aux = new Canciones();
             CancionesNegocio negocio = new CancionesNegocio();
-
             try
             {
-                aux.Titulo = txbTitulo.Text;
-                aux.FechaLanzamiento = dtpFechaLanzamiento.Value;
-                aux.CantidadCanciones = int.Parse(txbCantidadCanciones.Text);
-                aux.UrlImagenTapa = txbUrlImagenTapa.Text;
-                aux.Estilos = (Estilos)cbEstilos.SelectedItem;
-                aux.TiposEdicion = (TiposEdicion)cbTiposEdicion.SelectedItem;
+                auxiliar.Titulo = txbTitulo.Text;
+                auxiliar.FechaLanzamiento = dtpFechaLanzamiento.Value;
+                auxiliar.CantidadCanciones = int.Parse(txbCantidadCanciones.Text);
+                auxiliar.UrlImagenTapa = txbUrlImagenTapa.Text;
+                auxiliar.Estilos = (Estilos)cbEstilos.SelectedItem;
+                auxiliar.TiposEdicion = (TiposEdicion)cbTiposEdicion.SelectedItem;
 
-                negocio.Modificar(aux);
+                negocio.Modificar(auxiliar);
                 MessageBox.Show("Modificado exitosamente");
                 this.Close();
+            }
+            catch (NullReferenceException) 
+            {
+                MessageBox.Show("Referencia nula.");
             }
             catch (Exception ex)
             {

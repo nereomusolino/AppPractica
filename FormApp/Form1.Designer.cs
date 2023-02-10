@@ -88,6 +88,7 @@
             this.btnEliminarFisicamente.TabIndex = 4;
             this.btnEliminarFisicamente.Text = "Eliminar Fisicamente";
             this.btnEliminarFisicamente.UseVisualStyleBackColor = true;
+            this.btnEliminarFisicamente.Click += new System.EventHandler(this.btnEliminarFisicamente_Click);
             // 
             // lbTitulo
             // 

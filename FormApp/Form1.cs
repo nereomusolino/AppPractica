@@ -76,6 +76,28 @@ namespace FormApp
             formModificar.ShowDialog();
             CargarBase();
 
+
+        }
+
+        private void btnEliminarFisicamente_Click(object sender, EventArgs e)
+        {
+            Canciones objCan = new Canciones();
+            CancionesNegocio objNeg = new CancionesNegocio();
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("Desea eliminar la cancion?", "eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    objCan = (Canciones)dgvLista.CurrentRow.DataBoundItem;
+                    objNeg.EliminarFisicamente(objCan);
+                    CargarBase();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }
