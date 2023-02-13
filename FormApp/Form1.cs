@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using ClasesDominio;
 using ClasesNegocio;
+using System.Collections;
 
 namespace FormApp
 {
@@ -24,6 +25,9 @@ namespace FormApp
         private void Form_Load(object sender, EventArgs e)
         {
             CargarBase();
+            cbxCampo.Items.Add("Título Album");
+            cbxCampo.Items.Add("Cantidad Canciones");
+
         }
 
         private void CargarBase()
@@ -150,6 +154,45 @@ namespace FormApp
             dgvLista.DataSource = null;
             dgvLista.DataSource = listaFiltrada;
             OcultarColumnas();
+        }
+
+        private void cbxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cbxCampo.SelectedItem.ToString();
+            if (opcion == "Título Album")
+            {
+                cbxCriterio.Items.Clear();
+                cbxCriterio.Items.Add("Empiece con");
+                cbxCriterio.Items.Add("Termine con");
+                cbxCriterio.Items.Add("Contenga");
+            } 
+            else
+            {
+                cbxCriterio.Items.Clear();
+                cbxCriterio.Items.Add("Mayor a");
+                cbxCriterio.Items.Add("Menor a");
+                cbxCriterio.Items.Add("Sea igual a");
+            }
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            AccesoDatos datos= new AccesoDatos();
+            CancionesNegocio negocio = new CancionesNegocio();
+
+            try
+            {
+                string campo = cbxCampo.SelectedItem.ToString();
+                string criterio = cbxCriterio.SelectedItem.ToString();
+                string filtro = txbFiltro.Text;
+                dgvLista.DataSource = negocio.FiltrarAvanzado(campo, criterio, filtro);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());               
+            }
         }
     }
 }

@@ -36,6 +36,12 @@
             this.btnEliminarLogicamente = new System.Windows.Forms.Button();
             this.txbBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbxCampo = new System.Windows.Forms.ComboBox();
+            this.cbxCriterio = new System.Windows.Forms.ComboBox();
+            this.lblCampo = new System.Windows.Forms.Label();
+            this.lblCriterio = new System.Windows.Forms.Label();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.txbFiltro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenes)).BeginInit();
             this.SuspendLayout();
@@ -112,18 +118,78 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(240, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(571, 311);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(105, 20);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // cbxCampo
+            // 
+            this.cbxCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCampo.FormattingEnabled = true;
+            this.cbxCampo.Location = new System.Drawing.Point(64, 311);
+            this.cbxCampo.Name = "cbxCampo";
+            this.cbxCampo.Size = new System.Drawing.Size(121, 21);
+            this.cbxCampo.TabIndex = 9;
+            this.cbxCampo.SelectedIndexChanged += new System.EventHandler(this.cbxCampo_SelectedIndexChanged);
+            // 
+            // cbxCriterio
+            // 
+            this.cbxCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCriterio.FormattingEnabled = true;
+            this.cbxCriterio.Location = new System.Drawing.Point(250, 311);
+            this.cbxCriterio.Name = "cbxCriterio";
+            this.cbxCriterio.Size = new System.Drawing.Size(121, 21);
+            this.cbxCriterio.TabIndex = 10;
+            // 
+            // lblCampo
+            // 
+            this.lblCampo.AutoSize = true;
+            this.lblCampo.Location = new System.Drawing.Point(13, 315);
+            this.lblCampo.Name = "lblCampo";
+            this.lblCampo.Size = new System.Drawing.Size(43, 13);
+            this.lblCampo.TabIndex = 12;
+            this.lblCampo.Text = "Campo:";
+            // 
+            // lblCriterio
+            // 
+            this.lblCriterio.AutoSize = true;
+            this.lblCriterio.Location = new System.Drawing.Point(192, 315);
+            this.lblCriterio.Name = "lblCriterio";
+            this.lblCriterio.Size = new System.Drawing.Size(42, 13);
+            this.lblCriterio.TabIndex = 13;
+            this.lblCriterio.Text = "Criterio:";
+            // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Location = new System.Drawing.Point(378, 315);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltro.TabIndex = 14;
+            this.lblFiltro.Text = "Filtro:";
+            // 
+            // txbFiltro
+            // 
+            this.txbFiltro.Location = new System.Drawing.Point(417, 311);
+            this.txbFiltro.Name = "txbFiltro";
+            this.txbFiltro.Size = new System.Drawing.Size(148, 20);
+            this.txbFiltro.TabIndex = 15;
             // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(812, 299);
+            this.ClientSize = new System.Drawing.Size(812, 347);
+            this.Controls.Add(this.txbFiltro);
+            this.Controls.Add(this.lblFiltro);
+            this.Controls.Add(this.lblCriterio);
+            this.Controls.Add(this.lblCampo);
+            this.Controls.Add(this.cbxCriterio);
+            this.Controls.Add(this.cbxCampo);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txbBuscar);
             this.Controls.Add(this.btnEliminarLogicamente);
@@ -152,6 +218,12 @@
         private System.Windows.Forms.Button btnEliminarLogicamente;
         private System.Windows.Forms.TextBox txbBuscar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ComboBox cbxCampo;
+        private System.Windows.Forms.ComboBox cbxCriterio;
+        private System.Windows.Forms.Label lblCampo;
+        private System.Windows.Forms.Label lblCriterio;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.TextBox txbFiltro;
     }
 }
 
