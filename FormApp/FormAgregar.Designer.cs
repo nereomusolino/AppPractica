@@ -44,6 +44,7 @@
             this.btnCancelar2 = new System.Windows.Forms.Button();
             this.lblMenuAgregar = new System.Windows.Forms.Label();
             this.pbAgregar = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbAgregar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,11 +192,22 @@
             this.pbAgregar.TabIndex = 12;
             this.pbAgregar.TabStop = false;
             // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.Location = new System.Drawing.Point(270, 129);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(18, 20);
+            this.btnAgregarImagen.TabIndex = 13;
+            this.btnAgregarImagen.Text = "+";
+            this.btnAgregarImagen.UseVisualStyleBackColor = true;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
             // FormAgregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(535, 280);
+            this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.pbAgregar);
             this.Controls.Add(this.lblMenuAgregar);
             this.Controls.Add(this.btnCancelar2);
@@ -241,5 +253,6 @@
         private System.Windows.Forms.Button btnCancelar2;
         private System.Windows.Forms.Label lblMenuAgregar;
         private System.Windows.Forms.PictureBox pbAgregar;
+        private System.Windows.Forms.Button btnAgregarImagen;
     }
 }

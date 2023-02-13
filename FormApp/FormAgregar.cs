@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Configuration;
 
 namespace FormApp
 {
     public partial class FormAgregar : System.Windows.Forms.Form
     {
+        private OpenFileDialog archivo = null;
         public FormAgregar()
         {
             InitializeComponent();
@@ -64,6 +67,10 @@ namespace FormApp
                 MessageBox.Show(ex.ToString());
             }
 
+            if (archivo != null && !(txbUrlImagenTapa.Text.ToUpper().Contains("HTTP")))
+            {
+                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
+            }
         }
 
         private void btnCancelar2_Click(object sender, EventArgs e)
@@ -86,6 +93,17 @@ namespace FormApp
         private void txbUrlImagenTapa_Leave(object sender, EventArgs e)
         {
             CargarImagen(txbUrlImagenTapa.Text);
+        }
+
+        private void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg;|png|*.png";
+            if(archivo.ShowDialog() == DialogResult.OK)
+            {
+                txbUrlImagenTapa.Text = archivo.FileName;
+                CargarImagen(archivo.FileName);
+            }
         }
     }
 }
