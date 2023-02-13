@@ -175,6 +175,45 @@ namespace FormApp
             }
         }
 
+        private bool SoloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {              
+                if (!(char.IsNumber(caracter)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool ValidarCampos()
+        {
+            if(cbxCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor ingrese un campo");
+                return false;
+            }
+            if(cbxCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor ingrese un criterio");
+                return false;
+            }
+
+            if(cbxCampo.Text == "Cantidad Canciones")
+            {
+                if (string.IsNullOrEmpty(txbFiltro.Text))
+                {
+                    MessageBox.Show("Ingrese al menos un numero");
+                    return false;
+                }
+                if (!(SoloNumeros(txbFiltro.Text)))
+                {
+                    MessageBox.Show("Solo se permiten numeros para este campo");
+                    return false;
+                }
+            }
+            return true;
+        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -183,6 +222,10 @@ namespace FormApp
 
             try
             {
+                if (!(ValidarCampos()))
+                {
+                    return;
+                }
                 string campo = cbxCampo.SelectedItem.ToString();
                 string criterio = cbxCriterio.SelectedItem.ToString();
                 string filtro = txbFiltro.Text;
@@ -193,6 +236,8 @@ namespace FormApp
             {
                 MessageBox.Show(ex.ToString());               
             }
+
         }
+
     }
 }
