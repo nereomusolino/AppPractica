@@ -33,8 +33,7 @@ namespace FormApp
             {
                 listaCanciones = CancionesNegocio.Listar();
                 dgvLista.DataSource = listaCanciones;
-                dgvLista.Columns["UrlImagenTapa"].Visible = false;
-                dgvLista.Columns["Id"].Visible= false;
+                OcultarColumnas();
                 CargarImagen(listaCanciones[0].UrlImagenTapa);
             }
             catch (Exception ex)
@@ -42,10 +41,21 @@ namespace FormApp
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void OcultarColumnas()
+        {
+            dgvLista.Columns["UrlImagenTapa"].Visible = false;
+            dgvLista.Columns["Id"].Visible = false;
+        }
+
         private void dgvLista_SelectionChanged(object sender, EventArgs e)
         {
-            Canciones aux = (Canciones)dgvLista.CurrentRow.DataBoundItem;
-            CargarImagen(aux.UrlImagenTapa);
+            if(dgvLista.CurrentRow != null)
+            {
+                Canciones aux = (Canciones)dgvLista.CurrentRow.DataBoundItem;
+                CargarImagen(aux.UrlImagenTapa);
+
+            }
         }
 
         private void CargarImagen(string imagen)
@@ -117,10 +127,29 @@ namespace FormApp
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No se pudo eliminar");
             }                
+        }
+
+        private void txbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Canciones> listaFiltrada;
+            string filtro = txbBuscar.Text;
+
+            if (filtro.Length > 2)
+            {
+                listaFiltrada = listaCanciones.FindAll(x => x.Titulo.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaCanciones;
+            }
+
+            dgvLista.DataSource = null;
+            dgvLista.DataSource = listaFiltrada;
+            OcultarColumnas();
         }
     }
 }

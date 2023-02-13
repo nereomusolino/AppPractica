@@ -33,8 +33,9 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarFisicamente = new System.Windows.Forms.Button();
-            this.lbTitulo = new System.Windows.Forms.Label();
             this.btnEliminarLogicamente = new System.Windows.Forms.Button();
+            this.txbBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenes)).BeginInit();
             this.SuspendLayout();
@@ -91,16 +92,6 @@
             this.btnEliminarFisicamente.UseVisualStyleBackColor = true;
             this.btnEliminarFisicamente.Click += new System.EventHandler(this.btnEliminarFisicamente_Click);
             // 
-            // lbTitulo
-            // 
-            this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(214, 9);
-            this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(369, 26);
-            this.lbTitulo.TabIndex = 5;
-            this.lbTitulo.Text = "Programa Canciones (No Spotify)";
-            // 
             // btnEliminarLogicamente
             // 
             this.btnEliminarLogicamente.Location = new System.Drawing.Point(303, 263);
@@ -111,13 +102,31 @@
             this.btnEliminarLogicamente.UseVisualStyleBackColor = true;
             this.btnEliminarLogicamente.Click += new System.EventHandler(this.btnEliminarLogicamente_Click);
             // 
+            // txbBuscar
+            // 
+            this.txbBuscar.Location = new System.Drawing.Point(13, 20);
+            this.txbBuscar.Name = "txbBuscar";
+            this.txbBuscar.Size = new System.Drawing.Size(220, 20);
+            this.txbBuscar.TabIndex = 7;
+            this.txbBuscar.TextChanged += new System.EventHandler(this.txbBuscar_TextChanged);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(240, 20);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(105, 20);
+            this.btnBuscar.TabIndex = 8;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 299);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txbBuscar);
             this.Controls.Add(this.btnEliminarLogicamente);
-            this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnEliminarFisicamente);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -140,8 +149,9 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarFisicamente;
-        private System.Windows.Forms.Label lbTitulo;
         private System.Windows.Forms.Button btnEliminarLogicamente;
+        private System.Windows.Forms.TextBox txbBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
 
